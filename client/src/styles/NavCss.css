@@ -1,0 +1,16 @@
+.nav {
+    background: lightblue;
+    height: 30px;
+}
+
+.title {
+    margin-left: 2rem;
+}
+
+.about-tab {
+    margin-left: auto;
+}
+
+.home-tab {
+    margin-left: 1rem;
+}

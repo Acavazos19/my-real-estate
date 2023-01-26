@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import './styles/AppCss.css';
+import { Switch, Route, Link } from 'react-router-dom';
+import { Grid, Container } from '@mui/material';
+import './styles/NavCss.css';
+import Home from './components/Home';
+import About from './components/About';
+import Login from './components/Login';
+import Signup from './components/Signup';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Grid container className="nav">
+        <div className="title">
+          My Real Estate
+        </div>
+        <Link to="/about" className="about-tab">About</Link>
+        <Link to="/homes" className="home-tab">Homes</Link>
+      </Grid>
+      <Container className="app">
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/signup">
+            <Signup />
+          </Route>
+          <Route path ="/about">
+            <About />
+          </Route>
+        </Switch>
+      </Container>
+    </>
   );
 }
 
