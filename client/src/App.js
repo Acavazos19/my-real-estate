@@ -6,21 +6,32 @@ import Home from './components/Home';
 import About from './components/About';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import Inventory from './components/Inventory';
+import InventoryItem from './components/InventoryItem';
 
 function App() {
   return (
-    <>
+    <div className="app">
       <Grid container className="nav">
-        <div className="title">
-          My Real Estate
-        </div>
-        <Link to="/about" className="about-tab">About</Link>
-        <Link to="/homes" className="home-tab">Homes</Link>
+        <Grid className="title">
+          <h1>iReal Estate</h1>
+        </Grid>
+        <Grid>
+          <Link to="/about" className="about-tab">About</Link>
+          <Link to="/login" className="login-tab">Log In</Link>
+          <Link to="/inventory" className="home-tab">Homes</Link>
+        </Grid>
       </Grid>
-      <Container className="app">
+      <Container className="app-body">
         <Switch>
           <Route exact path="/">
             <Home />
+          </Route>
+          <Route path="/inventory/:id">
+            <InventoryItem />
+          </Route>
+          <Route path="/inventory">
+            <Inventory />
           </Route>
           <Route path="/login">
             <Login />
@@ -33,7 +44,7 @@ function App() {
           </Route>
         </Switch>
       </Container>
-    </>
+    </div>
   );
 }
 

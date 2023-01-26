@@ -1,6 +1,7 @@
 .nav {
     background: lightblue;
-    height: 30px;
+    height: 100px;
+    justify-content: space-between;
 }
 
 .title {
@@ -9,6 +10,10 @@
 
 .about-tab {
     margin-left: auto;
+}
+
+.login-tab {
+    margin-left: 1rem;
 }
 
 .home-tab {

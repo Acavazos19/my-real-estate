@@ -1,0 +1,17 @@
+.root {
+    background: lightblue
+}
+
+.login-title {
+    text-align: center;
+    font-weight: bold;
+}
+
+.form {
+    border: 1px solid #000;
+    text-align: center;
+}
+
+.form-info {
+    padding: 1rem;
+}
