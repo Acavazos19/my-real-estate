@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import '../styles/LoginCss.css';
 
 const Login = () => {
+    const [user, setUser] = useState({});
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -10,24 +11,26 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch("/login/user", {
-            method: "POST",
-            headers: {
-                "Content-Type": "appliation/json",
-            },
-            body: JSON.stringify({
-                email: formData.email,
-                password: formData.password
-            })
-        })
-        .then(r => {
-            if (r.ok) {
-                r.json()
-                .then(user => {
-                    <Redirect push to ="/" />
-                });
-            }
-        });
+        // fetch("/login", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //     },
+        //     body: JSON.stringify({
+        //         email: formData.email,
+        //         password: formData.password
+        //     })
+        // })
+        // .then(r => {
+        //     if (r.ok) {
+        //         r.json()
+        //         .then(user => {
+        //             <Redirect push to="/" />
+        //         });
+        //     }
+        // });
+        setUser(formData);
+        <Redirect push to="/" />
     };
 
     const handleChange = (e) => {

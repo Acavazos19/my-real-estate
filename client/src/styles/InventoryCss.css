@@ -1,0 +1,26 @@
+.inventory-card {
+    border: 1pt solid #000;
+    margin: 2rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+.card-details {
+    justify-content: space-around;
+}
+
+.sub-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.details {
+    padding: 5px;
+}
+
+.inventory-title {
+    text-align: center;
+}

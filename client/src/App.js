@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import './styles/AppCss.css';
 import { Switch, Route, Link } from 'react-router-dom';
 import { Grid, Container } from '@mui/material';
@@ -8,8 +9,11 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import Inventory from './components/Inventory';
 import InventoryItem from './components/InventoryItem';
+import Profile from './components/Profile';
 
 function App() {
+  const [user, setUser] = useState({})
+
   return (
     <div className="app">
       <Grid container className="nav">
@@ -36,8 +40,11 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
+          <Route path="/profile">
+            <Profile user={user} />
+          </Route>
           <Route path="/signup">
-            <Signup />
+            <Signup setUser={setUser} />
           </Route>
           <Route path ="/about">
             <About />

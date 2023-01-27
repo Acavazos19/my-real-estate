@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import '../styles/InventoryCss.css';
+import { Grid } from '@mui/material';
+import InventoryCard from './InventoryCard';
 
 const Inventory = () => {
     const [homes, setHomes] = useState([]);
@@ -15,18 +17,17 @@ const Inventory = () => {
     }, []);
 
     const renderHomes = homes?.map((home) => {
-        console.log('[+]:', home);
         return (
-            <Link to={`/inventory/${home.id}`}>
-                <h2>{home.address}</h2>
-            </Link>
+            <InventoryCard key={home.id} data={home} />
         )
-    })
+    });
 
     return (
         <div>
-            <h1>Inventory</h1>
-            {renderHomes}
+            <h1 className="inventory-title">Inventory</h1>
+            <Grid container>
+                {renderHomes}
+            </Grid>
         </div>
     )
 };

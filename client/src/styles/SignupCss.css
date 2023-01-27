@@ -8,10 +8,22 @@
 }
 
 .form {
-    border: 1px solid #000;
+    border: 25px solid gray;
+    border-radius: 10px;
     text-align: center;
+    margin: 15px;
+}
+
+.input-label {
+    margin-bottom: 0;
 }
 
 .form-info {
     padding: 1rem;
+}
+
+.form-button {
+    width: 100%;
+    text-transform: uppercase;
+    margin: 5%;
 }

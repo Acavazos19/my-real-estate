@@ -52,7 +52,7 @@ const Signup = () => {
                 <div className="form">
                 <form onSubmit={handleSubmit}>
                     <div>
-                        <h4>Email</h4>
+                        <h4 className="input-label">Email</h4>
                         <input
                             type="text"
                             value={formData.email}
@@ -61,7 +61,7 @@ const Signup = () => {
                         />
                     </div>
                     <div>
-                        <h4>Password</h4>
+                        <h4 className="input-label">Password</h4>
                         <input 
                             type="password"
                             value={formData.password}
@@ -70,7 +70,7 @@ const Signup = () => {
                         />
                     </div>
                     <div>
-                        <h4>Confirm Password</h4>
+                        <h4 className="input-label">Confirm Password</h4>
                         <input
                             type="password"
                             value={formData.confirm_password}
@@ -78,7 +78,7 @@ const Signup = () => {
                             onChange={handleChange}
                         />
                         </div>
-                        <input type="submit" />
+                        <input style={{ margin: '5px 0'}} type="submit" />
                     </form>
                 </div>
             </div>
