@@ -16,8 +16,6 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false)
   const [favorites, setFavorites] = useState([]);
 
-  console.log(favorites); 
-
   return (
     <div className="app">
       <Grid container className="nav">
@@ -29,7 +27,7 @@ function App() {
         <Grid className="tab-list">
           <NavLink to="/about" className="about-tab tab">About</NavLink>
           {loggedIn ? 
-            <NavLink to="/logout" className="tab">Log Out</NavLink> :
+            <NavLink to="/" className="tab">Log Out</NavLink> :
             <NavLink to="/login" className="login-tab tab">Log In</NavLink>}
           <NavLink to="/inventory" className="home-tab tab">Homes</NavLink>
           {loggedIn ? null : <NavLink to="/signup" className="tab">Sign Up</NavLink>}
@@ -50,7 +48,7 @@ function App() {
             <Login setUser={setUser} setLoggedIn={setLoggedIn} />
           </Route>
           <Route path="/profile">
-            <Profile user={user} favorites={favorites} />
+            <Profile user={user} favorites={favorites} setFavorites={setFavorites}/>
           </Route>
           <Route path="/signup">
             <Signup setUser={setUser} setLoggedIn={setLoggedIn} />

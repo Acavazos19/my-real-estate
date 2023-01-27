@@ -40,11 +40,6 @@ const InventoryItem = () => {
                         title={home?.address}
                     />
                     <Grid container justifyContent="space-around">
-                            {/* <CardMedia
-                                component="img"
-                                height="300px"
-                                image={proHome?.Media?.[0].MediaURL}
-                            /> */}
                         <Grid lg={6} item>
                             <Box sx={{ borderBottom: 1, borderColor: 'divider'}}>
                                 <img className="main-img" src={value} />

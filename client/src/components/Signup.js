@@ -3,7 +3,7 @@ import { Button, Container } from '@mui/material';
 import '../styles/SignupCss.css';
 import { Link } from 'react-router-dom';
 
-const Signup = () => {
+const Signup = ({ setUser, setLoggedIn}) => {
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -12,28 +12,27 @@ const Signup = () => {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        // fetch("/users", {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //     },
-        //     body: JSON.stringify({
-        //         email: formData.email,
-        //         password: formData.password,
-        //         // password_digest: formData.confirm_password,
-        //     }),
-        // })
-        // .then(r => {
-        //     if (r.ok) {
-        //         r.json()
-        //         .then(user => {
-        //             console.log('[+]', user);
-        //         })
-        //     } else {
-        //         r.json()
-        //         .then(err => console.log(err));
-        //     }
-        // });
+        fetch("/users", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                email: formData.email,
+                password: formData.password,
+            }),
+        })
+        .then(r => {
+            if (r.ok) {
+                r.json()
+                .then(user => {
+                    console.log('[+]', user);
+                })
+            } else {
+                r.json()
+                .then(err => console.log(err));
+            }
+        });
 
     };
 
@@ -43,7 +42,14 @@ const Signup = () => {
             ...formData,
             [name]: value
         });
-        console.log(value);
+    };
+
+    const handleClick = () => {
+        setUser({
+            id: 16,
+            ...formData,
+        });
+        setLoggedIn(true);
     };
 
     return (
@@ -79,7 +85,7 @@ const Signup = () => {
                             onChange={handleChange}
                         />
                         </div>
-                        <Button>
+                        <Button onClick={handleClick}>
                             <Link to="/inventory">SUBMIT</Link>
                         </Button>
                     </form>

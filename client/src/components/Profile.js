@@ -29,30 +29,6 @@ const Profile = () => {
     const user = {
         name: 'AJ',
         email: 'aj@developer.com',
-        favorites: [
-            {
-                "id": 24,
-                "address": "8155 Jerde Row",
-                "price": '144,9618',
-                "bedrooms": 7, 
-                "bathrooms": 4
-                ,"lot_size": 3,
-                "image": null,
-                "market": "Buy"
-                ,"description": "Modi unde ut. Et consequatur fuga. Dignissimos illo molestiae.",
-            },
-            {
-                "id": 22,
-                "address": "3376 Hackett Ville",
-                "price": "959,871"
-                ,"bedrooms": 6,
-                "bathrooms": 4,
-                "lot_size": 7,
-                "image": null,
-                "market": "Rent",
-                "description": "Fugiat laboriosam accusantium. Excepturi repellat beatae. Ut nisi ullam.",
-            }
-        ]
     };
     
     useEffect(() => {

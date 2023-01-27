@@ -11,30 +11,29 @@ const Login = ({ setUser, setLoggedIn }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // fetch("/login", {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //     },
-        //     body: JSON.stringify({
-        //         email: formData.email,
-        //         password: formData.password
-        //     })
-        // })
-        // .then(r => {
-        //     if (r.ok) {
-        //         r.json()
-        //         .then(user => {
-        //             <Redirect push to="/" />
-        //         });
-        //     }
-        // });
+        fetch("/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                email: formData.email,
+                password: formData.password
+            })
+        })
+        .then(r => {
+            if (r.ok) {
+                r.json()
+                .then(user => {
+                    <Redirect push to="/" />
+                });
+            }
+        });
         setUser({
             ...formData,
             id: 16,
         });
         setLoggedIn(true);
-        // <Redirect push to="/" />
     };
 
     const handleChange = (e) => {

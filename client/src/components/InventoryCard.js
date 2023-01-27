@@ -22,7 +22,7 @@ const ExpandMore = styled(( props ) => {
     }),
 }));
 
-const InventoryCard = ({ data, setFavorites }) => {
+const InventoryCard = ({ data, isFav = false }) => {
     const [expanded, setExpanded] = useState(false);
     const [favorite, setFavorite] = useState(false);
 
@@ -49,7 +49,7 @@ const InventoryCard = ({ data, setFavorites }) => {
             })
         })
         .then(r => r.json())
-        .then(favorite => console.log('[+] favorite')) : 
+        .then(fav => console.log('[+] favorite')) : 
         fetch("/favorites", {
             method: "DELETE",
             headers: {
@@ -72,9 +72,9 @@ const InventoryCard = ({ data, setFavorites }) => {
                     </Grid>
                 </Link>
                 <CardActions disableSpacing>
-                    <IconButton aria-label="add to favorites" onClick={handleFavoriteClick}>
+                    {isFav ? null : <IconButton aria-label="add to favorites" onClick={handleFavoriteClick}>
                         <FavoriteIcon style={{ fill: favorite ? 'red' : null }} />
-                    </IconButton>
+                    </IconButton>}
                     <ExpandMore
                         expand={expanded}
                         onClick={handleExpandClick}
