@@ -42,7 +42,7 @@ const InventoryCard = ({ data }) => {
 
     const handleFavoriteClick = () => {
         setFavorite(!favorite);
-        fetch("/favorites", {
+        favorite ? fetch("/favorites", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -53,7 +53,16 @@ const InventoryCard = ({ data }) => {
             })
         })
         .then(r => r.json())
-        .then(favorite => console.log('[+] favorite'))
+        .then(favorite => console.log('[+] favorite')) : 
+        fetch("/favorites", {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                inventory_id: data.id,
+            })
+        })
     };
 
     return (

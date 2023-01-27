@@ -9,7 +9,7 @@ import CardActions from '@mui/material/CardActions';
 import Collapse from '@mui/material/Collapse';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Avatar from '@mui/material/Avatar';
-import FavCard from './FavCard';
+import InventoryCard from './InventoryCard';
 
 const ExpandMore = styled((props) => {
     const { expand, ...other} = props;
@@ -57,6 +57,9 @@ const Profile = () => {
     
     useEffect(() => {
         setFavs(user.favorites)
+        fetch("/favorites")
+        .then(r => r.json())
+        .then(favs => console.log(favs))
     }, []);
 
     const handleExpandClick = () => {
@@ -65,7 +68,7 @@ const Profile = () => {
 
     const renderFavs = favs.map(fav => {
         return (
-            <FavCard data={fav} />
+            <InventoryCard data={fav} isFav={true} />
         )
     });
 

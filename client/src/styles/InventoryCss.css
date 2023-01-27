@@ -17,6 +17,10 @@ a {
     justify-content: space-between;
 }
 
+.main-img {
+    max-width: 500px;
+}
+
 .details {
     padding: 5px;
 }

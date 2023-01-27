@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './styles/AppCss.css';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route, Link, NavLink } from 'react-router-dom';
 import { Grid, Container } from '@mui/material';
 import './styles/NavCss.css';
 import Home from './components/Home';
@@ -13,17 +13,23 @@ import Profile from './components/Profile';
 
 function App() {
   const [user, setUser] = useState({})
+  const [loggedIn, setLoggedIn] = useState(false)
 
   return (
     <div className="app">
       <Grid container className="nav">
         <Grid className="title">
-          <h1>iReal Estate</h1>
+          <Link to="/">
+            <h1>iReal Estate</h1>
+          </Link>
         </Grid>
-        <Grid>
-          <Link to="/about" className="about-tab">About</Link>
-          <Link to="/login" className="login-tab">Log In</Link>
-          <Link to="/inventory" className="home-tab">Homes</Link>
+        <Grid className="tab-list">
+          <NavLink to="/about" className="about-tab tab">About</NavLink>
+          {loggedIn ? 
+            <NavLink to="/logout" className="tab">Log Out</NavLink> :
+            <NavLink to="/login" className="login-tab tab">Log In</NavLink>}
+          <NavLink to="/inventory" className="home-tab tab">Homes</NavLink>
+          {loggedIn ? null : <NavLink to="/signup" className="tab">Sign Up</NavLink>}
         </Grid>
       </Grid>
       <Container className="app-body">
@@ -38,13 +44,13 @@ function App() {
             <Inventory />
           </Route>
           <Route path="/login">
-            <Login />
+            <Login setUser={setUser} setLoggedIn={setLoggedIn} />
           </Route>
           <Route path="/profile">
             <Profile user={user} />
           </Route>
           <Route path="/signup">
-            <Signup setUser={setUser} />
+            <Signup setUser={setUser} setLoggedIn={setLoggedIn} />
           </Route>
           <Route path ="/about">
             <About />

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Container } from '@mui/material';
+import { Button, Container } from '@mui/material';
 import '../styles/SignupCss.css';
+import { Link } from 'react-router-dom';
 
 const Signup = () => {
     const [formData, setFormData] = useState({
@@ -11,29 +12,29 @@ const Signup = () => {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('[+]', formData);
-        fetch("/users", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                email: formData.email,
-                password: formData.password,
-                // password_digest: formData.confirm_password,
-            }),
-        })
-        .then(r => {
-            if (r.ok) {
-                r.json()
-                .then(user => {
-                    console.log('[+]', user);
-                })
-            } else {
-                r.json()
-                .then(err => console.log(err));
-            }
-        });
+        // fetch("/users", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //     },
+        //     body: JSON.stringify({
+        //         email: formData.email,
+        //         password: formData.password,
+        //         // password_digest: formData.confirm_password,
+        //     }),
+        // })
+        // .then(r => {
+        //     if (r.ok) {
+        //         r.json()
+        //         .then(user => {
+        //             console.log('[+]', user);
+        //         })
+        //     } else {
+        //         r.json()
+        //         .then(err => console.log(err));
+        //     }
+        // });
+
     };
 
     const handleChange = (e) => {
@@ -78,7 +79,9 @@ const Signup = () => {
                             onChange={handleChange}
                         />
                         </div>
-                        <input style={{ margin: '5px 0'}} type="submit" />
+                        <Button>
+                            <Link to="/inventory">SUBMIT</Link>
+                        </Button>
                     </form>
                 </div>
             </div>

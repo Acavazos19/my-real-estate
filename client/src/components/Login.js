@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 import '../styles/LoginCss.css';
 
-const Login = () => {
-    const [user, setUser] = useState({});
+const Login = ({ setUser, setLoggedIn }) => {
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -29,8 +29,12 @@ const Login = () => {
         //         });
         //     }
         // });
-        setUser(formData);
-        <Redirect push to="/" />
+        setUser({
+            ...formData,
+            id: 16,
+        });
+        setLoggedIn(true);
+        // <Redirect push to="/" />
     };
 
     const handleChange = (e) => {
@@ -39,8 +43,15 @@ const Login = () => {
             ...formData,
             [name]: value,
         })
-
     };
+
+    const handleClick = () => {
+        setUser({
+            ...formData,
+            id: 16,
+        });
+        setLoggedIn(true);
+    }
 
     return (
         <div className="root">
@@ -65,7 +76,12 @@ const Login = () => {
                             onChange={handleChange}
                         />
                     </div>
-                    <input type="submit"/>
+                    <p>Don't have an accout? <Link to="/signup">Sign Up</Link></p>
+                    <Button onClick={handleClick}>
+                        <Link to="/profile">
+                            SUBMIt
+                        </Link>
+                    </Button>
                 </form>
             </div>
         </div>
