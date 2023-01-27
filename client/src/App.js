@@ -14,6 +14,9 @@ import Profile from './components/Profile';
 function App() {
   const [user, setUser] = useState({})
   const [loggedIn, setLoggedIn] = useState(false)
+  const [favorites, setFavorites] = useState([]);
+
+  console.log(favorites); 
 
   return (
     <div className="app">
@@ -41,13 +44,13 @@ function App() {
             <InventoryItem />
           </Route>
           <Route path="/inventory">
-            <Inventory />
+            <Inventory favorites={favorites} setFavorites={setFavorites} />
           </Route>
           <Route path="/login">
             <Login setUser={setUser} setLoggedIn={setLoggedIn} />
           </Route>
           <Route path="/profile">
-            <Profile user={user} />
+            <Profile user={user} favorites={favorites} />
           </Route>
           <Route path="/signup">
             <Signup setUser={setUser} setLoggedIn={setLoggedIn} />

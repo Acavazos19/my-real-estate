@@ -3,7 +3,7 @@ import '../styles/InventoryCss.css';
 import { Grid } from '@mui/material';
 import InventoryCard from './InventoryCard';
 
-const Inventory = () => {
+const Inventory = ({ setFavorites }) => {
     const [homes, setHomes] = useState([]);
 
     useEffect(() => {
@@ -14,7 +14,7 @@ const Inventory = () => {
 
     const renderHomes = homes?.map((home) => {
         return (
-            <InventoryCard key={home.id} data={home} />
+            <InventoryCard key={home.id} data={home} setFavorites={setFavorites} />
         )
     });
 

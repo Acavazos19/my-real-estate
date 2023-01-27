@@ -10,7 +10,7 @@ class InventoriesController < ApplicationController
 
   # GET /inventories/1
   def show
-    render json: @inventory
+    render json: @inventory, include: :favorites
   end
 
   # POST /inventories

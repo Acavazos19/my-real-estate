@@ -22,7 +22,7 @@ const ExpandMore = styled(( props ) => {
     }),
 }));
 
-const InventoryCard = ({ data }) => {
+const InventoryCard = ({ data, setFavorites }) => {
     const [expanded, setExpanded] = useState(false);
     const [favorite, setFavorite] = useState(false);
 
@@ -31,10 +31,6 @@ const InventoryCard = ({ data }) => {
         .then(r => r.json())
         .then(isFav => console.log(isFav))
     }, []);
-
-    const user = {
-        id: 16
-    };
 
     const handleExpandClick = () => {
         setExpanded(!expanded);

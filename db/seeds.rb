@@ -8,7 +8,7 @@
 puts "Deleting seeds..."
 Inventory.destroy_all
 User.destroy_all
-Favorites.destroy_all
+Favorite.destroy_all
 
 puts "🌱 Seeding Inventory..."
 20.times do
@@ -23,7 +23,7 @@ puts "🌱 Seeding Inventory..."
     )
 end
 
-put "🌱 Seeding Users..."
+puts "🌱 Seeding Users..."
 10.times do
     User.create(
         email: Faker::Internet.unique.email,
@@ -31,10 +31,10 @@ put "🌱 Seeding Users..."
     )
 end
 
-put "🌱 Seeding Favorites..."
+puts "🌱 Seeding Favorites..."
 15.times do
     Favorite.create(
-        user_id: User.id.sample,
-        inventory_id: Inventory.id.sample,
+        user_id: User.ids.sample,
+        inventory_id: Inventory.ids.sample,
     )
 end

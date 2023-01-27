@@ -1,3 +1,3 @@
 class InventorySerializer < ActiveModel::Serializer
-  attributes :id, :address, :price, :bedrooms, :bathrooms, :lot_size, :image, :market, :description
+  attributes :id, :address, :price, :bedrooms, :bathrooms, :lot_size, :image, :market, :description, :favorites
 end
